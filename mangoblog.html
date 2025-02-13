@@ -1,12 +1,70 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
-<title>Page Title</title>
+    <title>mango blog</title> <!-- Sets the page title (shown on the browser tab) -->
+    
+    <style>
+        /* Styling the entire page */
+        body {
+            background-color: lightpink; /* Sets the background color */
+            text-align: center; /* Centers all text */
+            font-family: Arial, sans-serif; /* Sets the font style */
+        }
+
+        /* Styles for each blog post preview box */
+        .blog-post {
+            width: 50%; /* Makes each blog post take up half of the page width */
+            margin: 10px auto; /* Centers the blog post and adds space around it */
+            padding: 10px; /* Adds space inside the box */
+            background-color: white; /* Sets background color of the box */
+            border-radius: 10px; /* Rounds the corners */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow effect */
+            cursor: pointer; /* Changes the mouse pointer to indicate it's clickable */
+        }
+
+        /* Hides the full blog post content by default */
+        .content {
+            display: none; /* Keeps content hidden */
+            padding-top: 10px; /* Adds spacing when content appears */
+        }
+    </style>
 </head>
-<body style = "background-color:lightpink;">
 
-<h1>mango blog</h1>
-<p>This is a paragraph.</p>
+<body>
+    <h1>mango blog</h1> <!-- Main blog title -->
 
+    <!-- First blog post preview -->
+    <div class="blog-post" onclick="togglePost('post1')"> 
+        <h2>blog 1</h2> <!-- Blog post title -->
+        <p><i>description 1</i></p> <!-- Short preview of the post -->
+
+        <div id="post1" class="content"> 
+            <p>blog 1</p> <!-- Full blog post content -->
+        </div>
+    </div>
+
+    <!-- Second blog post preview -->
+    <div class="blog-post" onclick="togglePost('post2')"> 
+        <h2>blog 2</h2> <!-- Blog post title -->
+        <p><i>description 2</i></p> <!-- Short preview of the post -->
+
+        <div id="post2" class="content">
+            <p>blog 2</p> <!-- Full blog post content -->
+        </div>
+    </div>
+
+    <script>
+        /* JavaScript function to toggle the visibility of a blog post */
+        function togglePost(postId) {
+            var content = document.getElementById(postId); // Get the content div using its ID
+            
+            /* If the post is hidden, show it. Otherwise, hide it. */
+            if (content.style.display === "none" || content.style.display === "") {
+                content.style.display = "block"; // Show the full post
+            } else {
+                content.style.display = "none"; // Hide the full post
+            }
+        }
+    </script>
 </body>
 </html>
