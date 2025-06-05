@@ -4,35 +4,97 @@
     <title>Vivian's Website :)</title>
     <style>
         body {
-            background-color: lightpink;
+            background-color: aliceblue;
             text-align: center;
-            font-family: Garamond, serif; 
+            font-family: Garamond, serif;
         }
+
         h1 {
-            text-align: center; /* Centers just the heading */
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px;
+            text-align: left;
+        }
+
+        .container img {
+            width: 300px;
+            border-radius: 5px;
+        }
+
+        .container p {
+            max-width: 400px;
+            font-size: 18px;
+        }
+
+        .sticker-links {
+            margin-top: 50px;
+        }
+
+        .sticker-links img {
+            height: 200px;
+            width: 200px;
+            object-fit: contain; /* keeps image inside box without cropping */
+        }
+        .sticker-links img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        footer a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
     <h1>Vivian's Website :)</h1>
-    <p>Hello! Welcome to my website!</p>
 
-    <a href="https://vsyprk.github.io/mango/mangoblog.html">blog</a>
-        <img src = "https://i.pinimg.com/736x/73/5e/fe/735efede2258c6ac788fbbe2b6dc4466.jpg" alt=" Daisy Sticker">
-    </a>
-    <a href="https://vsyprk.github.io/mango/mangonails.html">nails</a>
-        <img src = "https://share.icloud.com/photos/02fl7gjtn8q3UU60o8ajlbuCg" alt=" Daisy Sticker">
-    </a>
+    <div class="container">
+        <img src="images/me.JPG" alt="Vivian's photo">
+        <p>
+            Hello and welcome to my website! My name is Vivian, and I'm a rising senior at the University of Michigan. 
+            I made this website to put all my passions, hobbies, and projects into one cohesive place.
+            I hope you enjoy!
+        </p>
+    </div>
 
+    <div class="sticker-links">
+        <a href="https://vsyprk.github.io/mango/mangoblog.html">
+            <img src="images/daisy.png" alt="Daisy Sticker">
+        </a>
+        <a href="https://vsyprk.github.io/mango/mangonails.html">
+            <img src="images/star.png" alt="Star Sticker" style="width: 250px; height:250 px;">
+        </a>
+        <a href="https://vsyprk.github.io/mango/mangoproj.html">
+            <img src="images/heart4.png" alt="Heart Sticker">
+        </a>
+    </div>
 
-    <p>Follow me!</p>
-  
-    <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
-    <a href="https://github.com/vsyprk">GitHub</a>
-    <a href="https://www.instagram.com/vsyprk/">Instagram</a>
-    <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+    <footer>
+        <p>Follow me!</p>
+        <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
+        <a href="https://github.com/vsyprk">GitHub</a>
+        <a href="https://www.instagram.com/vsyprk/">Instagram</a>
+        <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+    </footer>
 
 </body>
 </html>
+
 
