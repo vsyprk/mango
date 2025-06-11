@@ -5,20 +5,19 @@
 
     <style>
         body {
-            background-color: #b9ceeb; /* Sets the background color */
-            text-align: center; /* Centers all text */
-            font-family: Garamond, serif; /* Sets the font style */
-            color:#40302c;
+            background-color: #b9ceeb;
+            text-align: center;
+            font-family: Garamond, serif;
+            color: #40302c;
+            margin: 0;
+            padding: 0;
         }
 
-        .proj{
-            cursor: pointer;
-            text-align: center;
-        }
         .topnav {
             overflow: hidden;
             background-color: #40302c;
         }
+
         .topnav a {
             float: right;
             color: #f2f2f2;
@@ -27,22 +26,71 @@
             text-decoration: none;
             font-size: 17px;
         }
+
         .topnav a:hover {
             font-weight: bolder;
         }
+
         .topnav a.active {
-        background-color: slategrey;
-        color: white;
+            background-color: slategrey;
+            color: white;
         }
 
-        img {
-            height: 400px;
-            width: 400 px;
+        h1 {
+            margin-top: 30px;
         }
 
-        html, body {
-            margin: 0;
-            padding: 0;
+        p.intro {
+            width: 60%;
+            margin: auto;
+        }
+
+        .proj-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .proj {
+            width: 90%;
+            max-width: 700px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: left;
+            text-decoration: none;
+            color: #40302c;
+            transition: transform 0.2s ease;
+        }
+
+        .proj:hover {
+            transform: scale(1.01);
+        }
+
+        .proj img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .proj .content {
+            padding: 20px;
+        }
+
+        .proj h2 {
+            margin-top: 0;
+        }
+
+        .proj p {
+            margin: 10px 0;
+        }
+
+        .proj b {
+            display: block;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -52,26 +100,49 @@
     <div class="topnav">
         <a href="index.html" style="float:left">vivian</a>
         <a href="mangonails.html">nails</a>
-        <a class"active" href="mangoproj.html">projects</a>
+        <a class="active" href="mangoproj.html">projects</a>
         <a href="mangoblog.html">blog</a>
     </div>
 
     <h1>mango projects</h1>
-    <p>short description blah blah balh</p>
+    <p class="intro">As a cognitive science and computer science major at the University of Michigan, I'm constantly looking for projects that allow me to hone my programming skills while letting my creativity shine through. Please check out my favorites here!</p>
 
-    <p><img src="projimages/sleep.jpg"></p>
-    <h2>can't sleep</h2>
-    <details>
-        <summary>Text you see before expansion.</summary>
-        <p>Text you see after expansion.</p>
-    </details>
-    
-    <p><img src="projimages/nextchapter.jpeg"></p>
-    <h2>NextChapter</h2>
+    <div class="proj-container">
 
-    <p><img src="projimages/ml.png"></p>
-    <h2>Elderly Monitoring - machine learning</h2>
+        <!-- Can't Sleep -->
+        <a class="proj" href="https://openprocessing.org/sketch/2612316" target="_blank">
+            <img src="projimages/sleep.jpg" alt="Can't Sleep project">
+            <div class="content">
+                <h2>Can't Sleep</h2>
+                <p>My piece is an interactive sketch inspired by the final segment of <i>holding death close</i> by Brazilian artist enorê, which resonated with me through its haunting use of dialogue and exploration of sleep as a possible metaphor for death.</p>
+                <p>While enorê’s work removes agency from the viewer, I wanted to play with the illusion of choice using the familiar language of video game prompts. The user faces a looping purgatory of unsettling messages—no choice brings relief.</p>
+                <b>Languages Used: Javascript, HTML</b>
+            </div>
+        </a>
 
+        <!-- NextChapter -->
+        <a class="proj" href="https://github.com/IFSA-Prague/NextChapter" target="_blank">
+            <img src="projimages/nextchapter.jpeg" alt="NextChapter project">
+            <div class="content">
+                <h2>NextChapter</h2>
+                <p>NextChapter is a social platform that connects readers with book clubs tailored to their interests and reading pace. It focuses on community, not just book discovery, enabling users to track progress and engage in shared discussions.</p>
+                <p>Built with React Native/Expo, Firebase, and the Google Books API, the app helps users stay motivated to finish books and share reflections with others.</p>
+                <b>Languages Used: Javascript</b>
+            </div>
+        </a>
+
+        <!-- Elderly Monitoring -->
+        <a class="proj" href="https://github.com/vsyprk/elderlymonitoring-ml" target="_blank">
+            <img src="projimages/ml.png" alt="Elderly Monitoring ML project">
+            <div class="content">
+                <h2>Elderly Monitoring - Machine Learning</h2>
+                <p>This project explores non-intrusive elderly monitoring using environmental gas sensor data. I built machine learning models to detect which room a person is in—using only CO₂ and similar data—without needing cameras or wearables.</p>
+                <p>The result showed strong accuracy and potential for passive, privacy-preserving elder care.</p>
+                <b>Languages Used: Python</b>
+            </div>
+        </a>
+
+    </div>
 
 </body>
 </html>

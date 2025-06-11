@@ -1,103 +1,229 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vivian's Website :)</title>
-    <style>
-        body {
-            background-color: #b9ceeb;
-            text-align: center;
-            font-family: Garamond, serif;
-            color: #40302c;
-        }
+  <title>Vivian's Website :)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        h1 {
-            text-align: center;
-        }
+    html {
+      height: 100%;
+      background-color: #40302c;
+    }
 
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px;
-            text-align: left;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-family: Garamond, serif;
+      background-color: #b9ceeb;
+      color: #40302c;
+      text-align: center;
+    }
 
-        .container img {
-            width: 300px;
-            border-radius: 5px;
-        }
+    header {
+      padding: 40px 20px 20px;
+    }
 
-        .container p {
-            max-width: 400px;
-            font-size: 18px;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
 
-        .sticker-links {
-            margin-top: 50px;
-        }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      gap: 50px;
+    }
 
-        .sticker-links img {
-            height: 250px;
-            width: 250px;
-            object-fit: contain; /* keeps image inside box without cropping */
-        }
-        .sticker-links img:hover {
-            transform: scale(1.1);
-        }
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      gap: 40px;
+    }
 
-        footer {
-            margin-top: 50px;
-        }
+    .intro img {
+      width: 300px;
+      /*border-radius: 10px;*/
+      border: 4px solid #95adbe;
+    }
 
-        footer p {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    .intro-text {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: left;
+    }
 
-        footer a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #333;
-        }
-    </style>
+    .intro-text p {
+      margin-bottom: 1em;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .sticker-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    /* Container wraps each sticker + overlay */
+    .container {
+      position: relative;
+      display: inline-block;
+      width: 225px;
+      height: 225px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    /* Link fills container */
+    .container a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    /* Sticker image styling */
+    .container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    /* Slight zoom on hover */
+    .container a:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Overlay styling */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 10px;
+
+      /* Center text */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+
+      pointer-events: none; /* so hover works on link */
+    }
+
+    .overlay div {
+        text-shadow:
+            4px 4px 6px rgba(0, 0, 0, 0.8),
+            -4px -4px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Show overlay on hover */
+    .container a:hover .overlay {
+      opacity: 1;
+    }
+
+    footer {
+      background-color: #40302c;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #b9ceeb;
+    }
+
+    footer a {
+      margin: 10px;
+      text-decoration: none;
+      color: #b9ceeb;
+    }
+
+    @media (max-width: 768px) {
+      .intro {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <header>
     <h1>Vivian's Website :)</h1>
+  </header>
 
-    <div class="container">
-        <img src="images/me.JPG" alt="Vivian's photo">
-        <p>
-            Hello and welcome to my website! My name is Vivian, and I'm a rising senior at the University of Michigan. 
-            I made this website to put all my passions, hobbies, and projects into one cohesive place.
-            I hope you enjoy!
-        </p>
-    </div>
+  <main>
 
-    <h2> where would you like to go? </h2>
+    <section class="intro">
+      <img src="images/me.JPG" alt="Vivian's photo">
+      <div class="intro-text">
+        <p>Hello and welcome to my website! My name is Vivian, and I'm a rising senior at the University of Michigan.</p>
+        <p>I made this website to put all my passions, hobbies, and projects into one cohesive place. Whether it’s my love for art, my interest in tech for social good, or just fun ideas I’m experimenting with — this is the digital space where I keep it all.</p>
+        <p>Thanks for visiting. I hope you find something here that inspires or interests you!</p>
+      </div>
+    </section>
 
-    <div class="sticker-links">
-        <a href="https://vsyprk.github.io/mango/mangoblog.html">
+    <section>
+      <h2>Where would you like to go?</h2>
+      <div class="sticker-links">
+        <div class="container">
+          <a href="https://vsyprk.github.io/mango/mangoblog.html">
             <img src="images/daisy.png" alt="Daisy Sticker">
-        </a>
-        <a href="https://vsyprk.github.io/mango/mangonails.html">
-            <img src="images/star.png" alt="Star Sticker" style="width: 250px; height:250 px;">
-        </a>
-        <a href="https://vsyprk.github.io/mango/mangoproj.html">
+            <div class="overlay"><div>blog</div></div>
+          </a>
+        </div>
+        <div class="container">
+          <a href="https://vsyprk.github.io/mango/mangonails.html">
+            <img src="images/star.png" alt="Star Sticker">
+            <div class="overlay"><div>nails</div></div>
+          </a>
+        </div>
+        <div class="container">
+          <a href="https://vsyprk.github.io/mango/mangoproj.html">
             <img src="images/heart4.png" alt="Heart Sticker">
-        </a>
-    </div>
+            <div class="overlay"><div>projects</div></div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <p>Follow me!</p>
-        <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
-        <a href="https://github.com/vsyprk">GitHub</a>
-        <a href="https://www.instagram.com/vsyprk/">Instagram</a>
-        <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
-    </footer>
+  </main>
+
+  <footer>
+    <p>Follow me!</p>
+    <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
+    <a href="https://github.com/vsyprk">GitHub</a>
+    <a href="https://www.instagram.com/vsyprk/">Instagram</a>
+    <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+  </footer>
 
 </body>
 </html>
-
-
