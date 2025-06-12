@@ -68,8 +68,33 @@
       margin-bottom: 1em;
     }
 
+    .nav-prompt {
+      margin-top: 50px;
+      text-align: center;
+      width: 100%;
+    }
+    .arrow {
+        font-size: 36px;
+        animation: bounce 1.5s infinite;
+        cursor: pointer;
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+    }
+
     h2 {
       margin-top: 0;
+    }
+
+    .definition-block {
+      font-size: 15pt;
+      margin-top: 110px;
+      margin-bottom: 20px;
+      margin-left: 150px;
+      margin-right:150px;
+      text-align: left;
     }
 
     .sticker-links {
@@ -83,8 +108,8 @@
     .container {
       position: relative;
       display: inline-block;
-      width: 225px;
-      height: 225px;
+      width: 350px;
+      height: 350px;
       border-radius: 10px;
       overflow: hidden;
       cursor: pointer;
@@ -143,10 +168,10 @@
             -4px -4px 6px rgba(0, 0, 0, 0.8);
     }
 
-    /* Show overlay on hover */
-    .container a:hover .overlay {
-      opacity: 1;
-    }
+        /* Show overlay on hover */
+          .container a:hover .overlay {
+            opacity: 1;
+          }
 
         footer {
             background-color: #40302c;
@@ -172,10 +197,11 @@
         }
   </style>
 </head>
+
 <body>
 
   <header>
-    <h1>Vivian's Website :)</h1>
+    <h1>Welcome to Vivian's website!</h1>
   </header>
 
   <main>
@@ -183,35 +209,71 @@
     <section class="intro">
       <img src="images/me.JPG" alt="Vivian's photo">
       <div class="intro-text">
-        <p>Hello and welcome to my website! My name is Vivian, and I'm a rising senior at the University of Michigan.</p>
-        <p>I made this website to put all my passions, hobbies, and projects into one cohesive place. Whether it’s my love for art, my interest in tech for social good, or just fun ideas I’m experimenting with — this is the digital space where I keep it all.</p>
-        <p>Thanks for visiting. I hope you find something here that inspires or interests you!</p>
+
+      <h3>Hi, I'm Vivian!</h3>
+      <p>The question “Who are you?” has always made me pause—not because I don’t know, but because I’ve never been just one thing.  
+      I love storytelling through writing, creating art like sketches and nail designs, and building things through code. I’m drawn to both imagination and structure, creativity and technology.  
+      For a long time, I wasn’t sure how it all connected.</p>
+
+      <p>Then came <strong>mediocremango</strong>, and slowly, the answer started to take shape.  
+      So… what is a mediocremango?</p>
+
+
       </div>
+
+      <div class="nav-prompt">
+        <h2>What's a mediocremango?</h2>
+        <div class="arrow">&#x2193;</div>
+      </div>
+
     </section>
 
-    <section>
-      <h2>Where would you like to go?</h2>
-      <div class="sticker-links">
-        <div class="container">
-          <a href="https://vsyprk.github.io/mango/mangoblog.html">
-            <img src="images/daisy.png" alt="Daisy Sticker">
-            <div class="overlay"><div>blog</div></div>
-          </a>
+    <main>
+      <section class="stickers" id="stickers">
+
+        <div class="definition-block">
+          <h3>
+            <span class="term">mediocremango</span>
+            <span class="pronunciation">/ˌmē-dē-ˈō-krə-ˌmaŋ-gō/</span>
+            <span class="pos">(n.)</span>
+          </h3>
+
+            <p><strong>1.</strong> A digital personification of Vivian Park. What began as a video game username coined at age 15 became her go-to persona on nearly every platform—and eventually, a part of her identity.</p>
+
+            <p><strong>2.</strong> A thematic umbrella for Vivian’s creative pursuits: <strong>mangoblog</strong> (a space for writing and storytelling), <strong>mangonails</strong> (a visual diary of experimental nail art), and <strong>mangoprojects</strong> (a home for code, design, and things she builds).</p>
+
+            <p><strong>Origin:</strong> A blend of “mediocre” (a playful nod to imperfection) and “mango” (her favorite fruit), brought together with a love for alliteration. </p>
+
+            <p><strong>Synonyms:</strong> digital diary, fruit-flavored identity</p>
+
+            <p><strong>See also:</strong> <em>Vivian Park</em>, <em>personal expression</em>, <em>passion archive</em></p>
+
         </div>
-        <div class="container">
-          <a href="https://vsyprk.github.io/mango/mangonails.html">
-            <img src="images/star.png" alt="Star Sticker">
-            <div class="overlay"><div>nails</div></div>
-          </a>
+
+
+        
+        <div class="sticker-links">
+          <div class="container">
+            <a href="https://vsyprk.github.io/mango/mangoblog.html">
+              <img src="images/daisy.png" alt="Daisy Sticker">
+              <div class="overlay"><div>mango blog</div></div>
+            </a>
+          </div>
+          <div class="container">
+            <a href="https://vsyprk.github.io/mango/mangonails.html">
+              <img src="images/star.png" alt="Star Sticker">
+              <div class="overlay"><div>mango nails</div></div>
+            </a>
+          </div>
+          <div class="container">
+            <a href="https://vsyprk.github.io/mango/mangoproj.html">
+              <img src="images/heart4.png" alt="Heart Sticker">
+              <div class="overlay"><div>mango projects</div></div>
+            </a>
+          </div>
         </div>
-        <div class="container">
-          <a href="https://vsyprk.github.io/mango/mangoproj.html">
-            <img src="images/heart4.png" alt="Heart Sticker">
-            <div class="overlay"><div>projects</div></div>
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
   </main>
 
@@ -223,6 +285,12 @@
     <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
     <p style="color: #5c788b;">pvivian@umich.edu</p>
   </footer>
+
+  <script>
+      document.querySelector(".arrow").addEventListener("click", function() {
+          document.querySelector("#stickers").scrollIntoView({ behavior: 'smooth' });
+      });
+  </script>
 
 </body>
 </html>
