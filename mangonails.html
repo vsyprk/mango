@@ -2,159 +2,370 @@
 <html>
 <head>
     <title>mango nails</title>
-
     <style>
-        body {
-            background-color: #b9ceeb; /* Sets the background color */
-            text-align: center; /* Centers all text */
-            color:#40302c;
-            font-family: Garamond, serif; /* Sets the font style */
+        html {
+            height: 100%;
+            background-color: #40302c;
         }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Garamond, serif;
+            background-color: #c6daf5;
+            color: #40302c;
+            scroll-behavior: smooth;
+            text-align: center;
+        }
+
         .topnav {
             overflow: hidden;
             background-color: #40302c;
         }
+
         .topnav a {
             float: right;
-            color: #f2f2f2;
+            color: #fafafa;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
         }
+
         .topnav a:hover {
-            font-weight: bolder;
+            font-style: italic;
         }
+
         .topnav a.active {
-        background-color: slategrey;
-        color: white;
+            background-color: #5c788b;
+            color: #fafafa;
         }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-        }
-        div.gallery {
-        border: 1px solid #ccc;
+        .gallery {
+            text-align: center;
+            cursor: pointer;
         }
 
-        div.gallery img {
-        width: 100%;
-        height: auto;
+        /* Container fixes */
+        .gallery .image-container {
+            position: relative;
+            transition: height 0.3s ease;
         }
 
-        div.desc {
-        padding: 15px;
-        text-align: center;
+        /* Make every image exactly the same size */
+        .gallery img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: none;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Hide hover images in the grid */
+        .gallery .image-container .hover {
+            display: none;
+        }
+
+        .gallery:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .desc {
+            padding: 10px 0;
+            color:#40302c;
         }
 
         * {
-        box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 20px;
         }
 
         .responsive {
-        padding: 0 6px;
-        float: left;
-        width: 24.99999%;
+            box-sizing: border-box;
+            padding: 0;
+            width: 100%;  /* Let grid control width */
+            float: none;  /* Make sure float is off */
+            display: block; /* Ensure block layout */
         }
 
-        @media only screen and (max-width: 700px) {
-        .responsive {
-            width: 49.99999%;
-            margin: 6px 0;
-        }
+        @media only screen and (max-width: 900px) {
+            .responsive {
+                width: 50%;
+            }
         }
 
-        @media only screen and (max-width: 500px) {
-        .responsive {
+        @media only screen and (max-width: 600px) {
+            .responsive {
+                width: 100%;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        footer {
+            background-color: #40302c;
+            padding: 10px;
             width: 100%;
-        }
+            text-align: center;
         }
 
-        .clearfix:after {
-        content: "";
-        display: table;
-        clear: both;
+        footer p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fafafa;
+        }
+
+        footer a {
+            margin: 10px;
+            text-decoration: none;
+            color: #fafafa;
+        }
+
+        footer a:hover {
+            font-style: italic;
+        }
+
+        /* Lightbox overlay */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+            gap: 20px;
+            cursor: pointer;
+            flex-wrap: wrap;
+        }
+
+        /* When active */
+        #lightbox.active {
+            display: flex;
+        }
+
+        /* Images in modal */
+        #lightbox img {
+            max-height: 90vh;
+            width: 500px;
+            height: auto;
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+            cursor: default; /* prevent pointer on image */
+            flex-shrink: 0;
+        }
+
+        #lightbox .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #c6daf5;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            user-select: none;
+
+            background: none;
+            border-radius: 0;
+            width: auto;
+            height: auto;
+            line-height: normal;
+            text-align: right;
+            padding: 0;
+            transition: color 0.3s ease;
+        }
+
+        #lightbox .close-btn:hover {
+            color: #5c788b;
         }
     </style>
 </head>
 
 <body>
-
     <div class="topnav">
-        <a href="index.html" style="float:left">vivian</a>
-        <a class"active" href="mangonails.html">nails</a>
+        <a href="index.html" style="float:left">vivian park</a>
         <a href="mangoproj.html">projects</a>
+        <a class="active" href="mangonails.html">nails</a>
         <a href="mangoblog.html">blog</a>
     </div>
 
     <h1>mango nails</h1>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/a.jpeg" alt="a" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+    <div class="gallery-container">
+        <div class="responsive">
+            <div class="gallery">
+                <img src="nailimages/a.jpeg" alt="a">
+                <div class="desc">short nail design on my friend</div>
+            </div>
+        </div>
 
+        <div class="responsive">
+            <div class="gallery">
+                <div class="image-container">
+                    <img class="default" src="nailimages/b.jpeg" alt="left hand">
+                    <img class="hover" src="nailimages/bc.jpeg" alt="right hand">
+                </div>
+                <div class="desc">soft pink jelly with sparkle accents</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/b.jpeg" alt="b" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <div class="image-container">
+                    <img class="default" src="nailimages/c.jpeg" alt="left hand">
+                    <img class="hover" src="nailimages/cb.jpeg" alt="right hand">
+                </div>
+                <div class="desc">abstract blue and orange design</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/c.jpeg" alt="c" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <div class="image-container">
+                    <img class="default" src="nailimages/da.jpeg" alt="left hand">
+                    <img class="hover" src="nailimages/d.jpeg" alt="right hand">
+                </div>
+                <div class="desc">purple miffy for korea</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/d.jpeg" alt="d" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <img src="nailimages/e.jpeg" alt="e">
+                <div class="desc">jelly aura glow and french tip on my friend</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/e.jpeg" alt="e" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <div class="image-container">
+                    <img class="default" src="nailimages/f.jpeg" alt="left hand">
+                    <img class="hover" src="nailimages/fa.jpeg" alt="right hand">
+                </div>
+                <div class="desc">blue jelly with silver design</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/f.jpeg" alt="f" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <img src="nailimages/g.jpeg" alt="g">
+                <div class="desc">halloween nails with blooming gel</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/g.jpeg" alt="g" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <img src="nailimages/h.jpeg" alt="h">
+                <div class="desc">my 20th birthday nails</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/h.jpeg" alt="h" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <div class="image-container">
+                    <img class="default" src="nailimages/i.jpeg" alt="left hand">
+                    <img class="hover" src="nailimages/ia.jpeg" alt="right hand">
+                </div>
+                <div class="desc">sky blue design for california trip</div>
+            </div>
+        </div>
 
-    <div class="responsive">
-    <div class="gallery">
-        <img src="nailimages/i.jpeg" alt="i" width="600" height="400">
-        <div class="desc">Add a description of the image here</div>
-    </div>
-    </div>
+        <div class="responsive">
+            <div class="gallery">
+                <img src="nailimages/j.jpeg" alt="j">
+                <div class="desc">design with blue stickers</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <img src="nailimages/k.jpeg" alt="k">
+                <div class="desc">abstract pastel summer design</div>
+            </div>
+        </div>
+    </div> <!-- end gallery-container -->
 
     <div class="clearfix"></div>
 
+    <footer>
+        <p>Follow me!</p>
+        <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
+        <a href="https://github.com/vsyprk">GitHub</a>
+        <a href="https://www.instagram.com/vsyprk/">Instagram</a>
+        <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+        <p style="color: #5c788b;">pvivian@umich.edu</p>
+    </footer>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox">
+        <div class="close-btn" title="Close">&times;</div>
+    </div>
+
+    <script>
+        const galleries = document.querySelectorAll('.gallery');
+        const lightbox = document.getElementById('lightbox');
+        const closeBtn = lightbox.querySelector('.close-btn');
+
+        galleries.forEach(gallery => {
+            gallery.addEventListener('click', () => {
+                lightbox.classList.remove('single'); // reset
+
+                // Clear previous images except close button
+                [...lightbox.querySelectorAll('img')].forEach(img => img.remove());
+
+                // Find images inside this gallery
+                const imgs = gallery.querySelectorAll('img');
+
+                if (imgs.length === 1) {
+                    lightbox.classList.add('active', 'single');
+                    const img = imgs[0].cloneNode();
+                    lightbox.appendChild(img);
+                } else if (imgs.length >= 2) {
+                    lightbox.classList.add('active');
+                    imgs.forEach(img => {
+                        const clone = img.cloneNode();
+                        clone.style.display = 'inline-block';
+                        lightbox.appendChild(clone);
+                    });
+                } else {
+                    // fallback
+                    if (imgs[0]) {
+                        lightbox.classList.add('active', 'single');
+                        const img = imgs[0].cloneNode();
+                        lightbox.appendChild(img);
+                    }
+                }
+            });
+        });
+
+        // Close on clicking close button
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent event bubbling
+            lightbox.classList.remove('active', 'single');
+            [...lightbox.querySelectorAll('img')].forEach(img => img.remove());
+        });
+
+        // Close on clicking outside images (on overlay)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active', 'single');
+                [...lightbox.querySelectorAll('img')].forEach(img => img.remove());
+            }
+        });
+    </script>
 </body>
 </html>
+

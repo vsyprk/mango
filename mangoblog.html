@@ -4,12 +4,21 @@
     <title>mango blog</title> <!-- Sets the page title (shown on the browser tab) -->
     
     <style>
+
+        html {
+            height: 100%;
+            background-color: #40302c;
+        }
+
         /* Styling the entire page */
         body {
-            background-color: #b9ceeb; /* Sets the background color */
-            text-align: center; /* Centers all text */
-            color:#40302c;
-            font-family: Garamond, serif; /* Sets the font style */
+            margin: 0;
+            padding: 0;
+            font-family: Garamond, serif;
+            background-color: #c6daf5;
+            color: #40302c;
+            scroll-behavior: smooth;
+            text-align: center;
         }
 
         /* Styles for each blog post preview box */
@@ -19,6 +28,9 @@
             padding: 10px; /* Adds space inside the box */
             text-align: left;
             cursor: pointer; /* Changes the mouse pointer to indicate it's clickable */
+        }
+        .blog-post a:hover{
+            color: #5c788b
         }
         a {
             text-decoration: none;
@@ -31,23 +43,42 @@
         }
         .topnav a {
             float: right;
-            color: #f2f2f2;
+            color: #fafafa;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
         }
         .topnav a:hover {
-            font-weight: bolder;
-        }
-        .topnav a.active {
-        background-color: slategrey;
-        color: white;
+            font-style: italic;
         }
 
-        html, body {
-            margin: 0;
-            padding: 0;
+        .topnav a.active {
+            background-color: #5c788b;
+            color: #fafafa;
+        }
+
+        footer {
+            background-color: #40302c;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fafafa;
+        }
+
+        footer a {
+            margin: 10px;
+            text-decoration: none;
+            color: #fafafa;
+        }
+
+        footer a:hover {
+            font-style: italic;
         }
 
 
@@ -57,10 +88,10 @@
 <body>
 
     <div class="topnav">
-        <a href="index.html" style="float:left">vivian</a>
-        <a href="mangonails.html">nails</a>
+        <a href="index.html" style="float:left">vivian park</a>
         <a href="mangoproj.html">projects</a>
-        <a class"active" href="mangoblog.html">blog</a>
+        <a href="mangonails.html">nails</a>
+        <a class="active" href="mangoblog.html">blog</a>
     </div>
 
     <h1>mango blog</h1>
@@ -113,6 +144,15 @@
         <p>spring 2022 </p><!-- Blog post title -->
         <p><i>my take on the masculinity in my life</i></p> <!-- Short preview of the post -->
     </div>
+
+    <footer>
+        <p>Follow me!</p>
+        <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
+        <a href="https://github.com/vsyprk">GitHub</a>
+        <a href="https://www.instagram.com/vsyprk/">Instagram</a>
+        <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+        <p style="color: #5c788b;">pvivian@umich.edu</p>
+    </footer>
 
     <script>
         /* JavaScript function to toggle the visibility of a blog post */

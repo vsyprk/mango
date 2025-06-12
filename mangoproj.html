@@ -2,15 +2,19 @@
 <html>
 <head>
     <title>mango projects</title>
-
     <style>
+        html {
+            height: 100%;
+            background-color: #40302c;
+        }
+
         body {
-            background-color: #b9ceeb;
-            text-align: center;
-            font-family: Garamond, serif;
-            color: #40302c;
             margin: 0;
             padding: 0;
+            font-family: Garamond, serif;
+            background-color: #c6daf5;
+            color: #40302c;
+            scroll-behavior: smooth;
         }
 
         .topnav {
@@ -20,7 +24,7 @@
 
         .topnav a {
             float: right;
-            color: #f2f2f2;
+            color: #fafafa;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
@@ -28,69 +32,106 @@
         }
 
         .topnav a:hover {
-            font-weight: bolder;
+            font-style: italic;
         }
 
         .topnav a.active {
-            background-color: slategrey;
-            color: white;
+            background-color: #5c788b;
+            color: #fafafa;
         }
 
-        h1 {
-            margin-top: 30px;
-        }
-
-        p.intro {
-            width: 60%;
-            margin: auto;
-        }
-
-        .proj-container {
+        .intro {
+            height: 100vh;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 40px;
-            margin: 40px 0;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .intro h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            max-width: 700px;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .arrow {
+            font-size: 36px;
+            animation: bounce 1.5s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        .projects {
+            padding: 40px 20px;
         }
 
         .proj {
-            width: 90%;
-            max-width: 700px;
-            background-color: white;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+            background-color: #fafafa;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-            text-align: left;
-            text-decoration: none;
-            color: #40302c;
-            transition: transform 0.2s ease;
-        }
-
-        .proj:hover {
-            transform: scale(1.01);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
         .proj img {
             width: 100%;
             height: auto;
+            max-height: 400px;
+            object-fit: cover;
             display: block;
-        }
-
-        .proj .content {
-            padding: 20px;
-        }
-
-        .proj h2 {
-            margin-top: 0;
+            margin-bottom: 15px;
+            border-radius: 8px;
         }
 
         .proj p {
-            margin: 10px 0;
+            text-align: left;
         }
 
-        .proj b {
-            display: block;
-            margin-top: 10px;
+        .proj a {
+            color: #40302c;
+            text-decoration: underline;
+        }
+
+        .proj a:hover {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #40302c;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #fafafa;
+        }
+
+        footer a {
+            margin: 10px;
+            text-decoration: none;
+            color: #fafafa;
+        }
+
+        footer a:hover {
+            font-style: italic;
         }
     </style>
 </head>
@@ -98,51 +139,76 @@
 <body>
 
     <div class="topnav">
-        <a href="index.html" style="float:left">vivian</a>
-        <a href="mangonails.html">nails</a>
+        <a href="index.html" style="float:left">vivian park</a>
         <a class="active" href="mangoproj.html">projects</a>
+        <a href="mangonails.html">nails</a>
         <a href="mangoblog.html">blog</a>
     </div>
 
-    <h1>mango projects</h1>
-    <p class="intro">As a cognitive science and computer science major at the University of Michigan, I'm constantly looking for projects that allow me to hone my programming skills while letting my creativity shine through. Please check out my favorites here!</p>
+    <section class="intro">
+        <h1>Vivian Park</h1>
+        <h2>mango projects</h2>
+        <p>As a cognitive science and computer science major at the University of Michigan, I'm constantly looking for projects that allow me to hone my programming skills while letting my creativity shine through. Please check out my favorites here!</p>
+        <div class="arrow">&#x2193;</div>
+    </section>
 
-    <div class="proj-container">
+    <main>
 
-        <!-- Can't Sleep -->
-        <a class="proj" href="https://openprocessing.org/sketch/2612316" target="_blank">
-            <img src="projimages/sleep.jpg" alt="Can't Sleep project">
-            <div class="content">
+        <section class="projects" id="projects">
+
+            <div class="proj" onclick="window.open('https://openprocessing.org/sketch/2612316', '_blank')">
                 <h2>Can't Sleep</h2>
-                <p>My piece is an interactive sketch inspired by the final segment of <i>holding death close</i> by Brazilian artist enorê, which resonated with me through its haunting use of dialogue and exploration of sleep as a possible metaphor for death.</p>
-                <p>While enorê’s work removes agency from the viewer, I wanted to play with the illusion of choice using the familiar language of video game prompts. The user faces a looping purgatory of unsettling messages—no choice brings relief.</p>
-                <b>Languages Used: Javascript, HTML</b>
+                <img src="projimages/sleep.jpg" alt="Can't Sleep project">
+                <p>My piece is an interactive sketch inspired by the final segment of <a href="https://amlatina.contemporaryand.com/candcommissions/holding-death-close-stage-four/" target="_blank"><i>holding death close</i></a> by Brazilian artist enorê, which resonated with me through its haunting use of dialogue and exploration of sleep as a possible metaphor for death. </p>
+                <p>While enorê’s work removes agency from the viewer, I wanted to play with the illusion of choice, using the familiar language of video game prompts to evoke a similar sense of helplessness. The user is asked a simple question:
+                    “Go to sleep for the night?” Though “YES” appears to be the correct choice, each click leads to increasingly unsettling messages. Choosing “NO” offers no relief either, only curt dismissal. 
+                </p>
+                <p>Inspired by the anxiety-inducing mechanics of games like <i>Minecraft</i> and <i>Stardew Valley</i>, the sketch traps the player in a looping limbo, aiming to replicate the unsettling, uncertain atmosphere of <i>holding death close</i> through a minimalist yet emotionally charged interaction.
+                </p>
+                <p><b>JavaScript ● HTML ● CSS ● OpenProcessing</b></p>
             </div>
-        </a>
 
-        <!-- NextChapter -->
-        <a class="proj" href="https://github.com/IFSA-Prague/NextChapter" target="_blank">
-            <img src="projimages/nextchapter.jpeg" alt="NextChapter project">
-            <div class="content">
+            <div class="proj" onclick="window.open('https://github.com/IFSA-Prague/NextChapter', '_blank')">
                 <h2>NextChapter</h2>
-                <p>NextChapter is a social platform that connects readers with book clubs tailored to their interests and reading pace. It focuses on community, not just book discovery, enabling users to track progress and engage in shared discussions.</p>
-                <p>Built with React Native/Expo, Firebase, and the Google Books API, the app helps users stay motivated to finish books and share reflections with others.</p>
-                <b>Languages Used: Javascript</b>
+                <img src="projimages/nextchapter.jpeg" alt="NextChapter project"> 
+                <a href="https://www.youtube.com/shorts/XHUUS8V6Pd8" target="_blank" style="color: #40302c;">View Demo</a></p>
+                <p>NextChapter is a social media platform designed to help readers stay motivated and engaged by connecting them with book clubs tailored to their interests and pace.</p> 
+                <p>Rather than simply focusing on book discovery, NextChapter emphasizes community through interactive, book-club-style discussions that encourage completion and shared reflection. 
+                    The platform aims to solve common reading challenges—like lack of motivation or fear of spoilers—by creating a space where readers can track progress, engage with others mid-read, and find clubs that match their taste. </p>
+                <p>Built with React Native/Expo, Firebase for authentication, and the Google Books API for book data, NextChapter offers a seamless, community-driven reading experience.</p>
+                <p><b>JavaScript ● React Native ● Expo ● Firebase ● Google Books API</b></p>
             </div>
-        </a>
 
-        <!-- Elderly Monitoring -->
-        <a class="proj" href="https://github.com/vsyprk/elderlymonitoring-ml" target="_blank">
-            <img src="projimages/ml.png" alt="Elderly Monitoring ML project">
-            <div class="content">
+            <div class="proj" onclick="window.open('https://github.com/vsyprk/elderlymonitoring-ml', '_blank')">
                 <h2>Elderly Monitoring - Machine Learning</h2>
-                <p>This project explores non-intrusive elderly monitoring using environmental gas sensor data. I built machine learning models to detect which room a person is in—using only CO₂ and similar data—without needing cameras or wearables.</p>
-                <p>The result showed strong accuracy and potential for passive, privacy-preserving elder care.</p>
-                <b>Languages Used: Python</b>
+                <img src="projimages/ml.png" alt="Elderly Monitoring ML project">
+                <p>This project addressed the problem of detecting which room an elderly individual is in based solely on data from environmental gas sensors without relying on intrusive methods like video monitoring or wearable devices. 
+                    The goal was to determine whether such passive sensing could feasibly be used to support independent living for the elderly.
+                </p>
+                <p>Using a dataset collected over one week from sensors placed in five different rooms of an elderly person’s home, 
+                    I developed machine learning classification models to predict the current room based on environmental data, primarily carbon dioxide (CO₂) levels, 
+                    along with other gas sensor readings. With careful preprocessing and model selection, I was able to achieve high classification accuracy across most room types.
+                </p>
+                <p><b>Python ● Jupyter Notebook ● scikit-learn</b></p>
             </div>
-        </a>
 
-    </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Follow me!</p>
+        <a href="https://www.linkedin.com/in/vivian-park12/">LinkedIn</a>
+        <a href="https://github.com/vsyprk">GitHub</a>
+        <a href="https://www.instagram.com/vsyprk/">Instagram</a>
+        <a href="https://open.spotify.com/user/vivianpark2004?si=d85522d788d74591">Spotify</a>
+        <p style="color: #5c788b;">pvivian@umich.edu</p>
+    </footer>
+    
+    <script>
+        document.querySelector(".arrow").addEventListener("click", function() {
+            document.querySelector("#projects").scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 </html>
